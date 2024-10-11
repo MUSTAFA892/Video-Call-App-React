@@ -1,0 +1,38 @@
+/* Room.css */
+
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden; /* Prevent scrolling during the call */
+}
+
+/* Video call container */
+.myCallContainer {
+    width: 100vw;  /* Full width */
+    height: 100vh; /* Full height */
+    display: flex;
+    justify-content: center; /* Center content */
+    align-items: center; /* Center content */
+/* Desktop background */
+}
+
+/* Background image for mobile view */
+@media (max-width: 768px) {
+    .myCallContainer {
+/* Mobile background */
+    }
+}
+
+/* Optional: Add any additional styling for the video feed */
+.video-feed {
+    width: 100%; /* Adjust to your needs */
+    height: 100%; /* Adjust to your needs */
+    border-radius: 15px; /* Round corners */
+    overflow: hidden; /* Ensure no overflow */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); /* Soft shadow for depth */
+}
