@@ -29,7 +29,7 @@ export default function Room() {
                 sharedLinks: [
                     {
                         name: 'Personal link',
-                        url: `https://video-call-app-react-ckzs.vercel.app/${id}`
+                        url: `https://video-call-app-react-ckzs.vercel.app/room/${id}`
                     },
                 ],
                 scenario: {
