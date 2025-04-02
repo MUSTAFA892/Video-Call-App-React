@@ -1,70 +1,90 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# FaceLink - Video Call App
 
-In the project directory, you can run:
+FaceLink is a video call application built using React and integrated with ZegoCloud for real-time video communication. It allows users to join a video call by using a unique room ID and provides features like personal shared links for easy access.
 
-### `npm start`
+## Features
+- 1-on-1 video call functionality.
+- Personal shared link for each video room.
+- Real-time video and audio communication.
+  
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Before running this app, make sure you have the following installed:
+- [Node.js](https://nodejs.org/) (Recommended version: 14.x or higher)
+- [npm](https://www.npmjs.com/) (or Yarn)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### 1. Clone the Repository
+Clone the project to your local machine:
+```bash
+git clone https://github.com/your-username/FaceLink.git
+cd FaceLink
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Install Dependencies
+Inside the project directory, run the following command to install the required dependencies:
+```bash
+npm install
+```
 
-### `npm run build`
+### 3. Set Up ZegoCloud API
+This app uses ZegoCloud’s video call services. In order to use the ZegoCloud API, you need to replace the `serverSecret` and `appID` in the code with your own credentials.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **App ID**: Your ZegoCloud application ID.
+- **Server Secret**: Your ZegoCloud server secret.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Steps to Obtain Your ZegoCloud Credentials:
+1. Go to the [ZegoCloud Dashboard](https://console.zegocloud.com/) and log in or sign up.
+2. Create a new project or use an existing project to get the **App ID** and **Server Secret**.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. Replace ZegoCloud Credentials in the Code
+In the `Room.js` file, replace the `appID` and `serverSecret` with your own:
 
-### `npm run eject`
+```js
+const appID = <YOUR_APP_ID>;  // Replace with your ZegoCloud App ID
+const serverSecret = "<YOUR_SERVER_SECRET>";  // Replace with your ZegoCloud Server Secret
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 5. Run the Application
+After replacing the credentials, run the app by executing the following command in your terminal:
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This will start the development server and the app will be available at `http://localhost:3000/`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 6. Accessing a Room
+To join a video call:
+1. Open a browser window and go to `http://localhost:3000/room/:id`, replacing `:id` with a unique room ID.
+2. The app will generate a personal link to the meeting, and users can join the call.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 7. Deployment (Optional)
+To deploy the app for production, you can use Vercel, Netlify, or any other static hosting service. For Vercel:
+1. Push your code to GitHub or any other Git repository.
+2. Connect your GitHub repository to [Vercel](https://vercel.com/) and deploy.
 
-## Learn More
+### How the App Works
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **ZegoCloud Integration**: The app utilizes ZegoCloud’s `ZegoUIKitPrebuilt` library for real-time video call functionality. 
+2. **Room Management**: The app allows users to join a specific room by providing a unique room ID in the URL. This ID is used to generate a ZegoCloud Kit Token for secure room entry.
+3. **Personal Links**: Each user is provided a personal link to join the room, which can be shared with others.
+4. **1-on-1 Calls**: The default scenario is set to 1-on-1 call mode using `ZegoUIKitPrebuilt.OneONoneCall`. However, this can be adjusted for group calls.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Technologies Used
+- **React**: For building the user interface.
+- **ZegoCloud**: For real-time video communication.
+- **React Router**: For handling dynamic URLs for different rooms.
 
-### Code Splitting
+## Customization
+Feel free to adjust the app as needed:
+- Change the call mode to support group calls by using `ZegoUIKitPrebuilt.GroupCall`.
+- Add more features like chat, screen sharing, etc.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
+This project is open-source and available under the MIT License.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
